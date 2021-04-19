@@ -363,6 +363,7 @@ void ListenerImpl::buildUdpListenerFactory(Network::Address::SocketType socket_t
       ENVOY_LOG(warn, "Listening on UDP without SO_REUSEPORT socket option may result to unstable "
                       "packet proxying. Consider configuring the reuse_port listener option.");
     }
+
   }
 }
 
