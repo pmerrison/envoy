@@ -97,8 +97,9 @@ public:
     }
   }
   bool isOpen() const override {
-    ASSERT(io_handle_ != nullptr);
-    return io_handle_->isOpen();
+    return io_handle_ == nullptr ? false // Consider listen socket as closed if it does not bind to
+                                         // port. No fd will leak.
+                                 : io_handle_->isOpen();
   }
 
 protected:
